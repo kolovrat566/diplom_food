@@ -1,0 +1,31 @@
+.totalCostContainer {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ffff;
+  border-radius: 10px;
+  width: 800px;
+  min-height: 70px;
+  font-size: 25px;
+  font-weight: 600;
+  color: #6b6d71;
+
+  .ration {
+    width: calc(25% - 20px);
+    padding: 15px 0 0 20px;
+  }
+
+  .count {
+    width: 45%;
+    padding-top: 15px;
+  }
+  
+  .btn {
+    width: 30%;
+    border: none;
+    border-radius: 10px;
+    background-color: #fb5a16;
+    color: white;
+    font-size: 30px;
+  }
+}

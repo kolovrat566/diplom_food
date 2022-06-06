@@ -6,13 +6,13 @@ import axios from 'axios';
 import { CustomInput } from '../CustomInput';
 import { useSelector } from 'react-redux';
 
-export const Modal = ({isActive, setIsActive}) => {
-  const [firstName,  setFirsName] = useState('')
-  const [lastName,  setLastName] = useState('')
-  const [patronymic,  setPatronymic] = useState('')
-  const [phone,  setPhone] = useState('')
-  const [address,  setAddress] = useState('')
-  const storeValues = useSelector(state => state)
+export const Modal = ({ isActive, setIsActive }) => {
+  const [firstName,  setFirsName] = useState('');
+  const [lastName,  setLastName] = useState('');
+  const [patronymic,  setPatronymic] = useState('');
+  const [phone,  setPhone] = useState('');
+  const [address,  setAddress] = useState('');
+  const storeValues = useSelector(state => state);
 
   const fieldsArr = [
     {
@@ -45,7 +45,7 @@ export const Modal = ({isActive, setIsActive}) => {
       value: address,
       setValue: setAddress,
     },
-  ]
+  ];
 
   const formik = useFormik({
     initialValues: {
@@ -62,14 +62,12 @@ export const Modal = ({isActive, setIsActive}) => {
       firstName: Yup.string().required('Обязательное поле'),
       lastName: Yup.string().required('Обязательное поле'),
       patronymic: Yup.string().required('Обязательное поле'),
-      phone: Yup.string().required('Обязательное поле')
-      .test('', 'Введите телефон полностью', value => value[value.length - 1] !== '_'),
+      phone: Yup.string().required('Обязательное поле'),
+      // .test('', 'Введите телефон полностью', value => value[value.length - 1] !== '_'),
 
     }),
 
     onSubmit: values => {
-      console.log(JSON.stringify(values));
-      const config = {headers: {"Content-Type": "application/json"}}
       axios.post('http://localhost:8080/addUser/', JSON.stringify(values));
     },
   });
@@ -88,6 +86,7 @@ export const Modal = ({isActive, setIsActive}) => {
             formik={formik}
             type={item.type}
             isObligatory
+            key={idx}
           />
         )}
       </div>

@@ -1,24 +1,41 @@
 .container {
   margin: 10px;
   padding: 5px;
-  // border: 1px solid lightgray;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #f8f8f8;
+  width: 100%;
+  min-height: 65px;
+  color: #a7acb5;
+  font-family: "Proxima Nova Bold";
+  
 
   .title {
     font-size: 25px;
     font-weight: 600;
-    color: black;
   }
 
   .text {
     font-size: 18px;
     font-weight: 400;
-    color: rgb(172, 171, 171);
+  }
+}
 
+.active {
+  box-shadow: 0 4px 12px hsl(0deg 1% 59% / 24%);
+
+  .title {
+    font-size: 25px;
+    font-weight: 600;
+    color: #fb5a16;
+  }
+
+  .text {
+    font-size: 18px;
+    font-weight: 400;
+    color: #fb5a16;
   }
 }

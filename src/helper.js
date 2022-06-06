@@ -42,3 +42,5 @@ export const countDaysActiveArr = [
     title: '30',
   },
 ]
+
+export const prices = [ 1025, 800, 730, 670, 640 ]
