@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Modal.module.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -7,13 +7,16 @@ import { CustomInput } from '../CustomInput';
 import { useSelector } from 'react-redux';
 
 export const Modal = ({ isActive, setIsActive }) => {
+  const [status, setStatus] = useState('panding')
   const [firstName,  setFirsName] = useState('');
   const [lastName,  setLastName] = useState('');
   const [patronymic,  setPatronymic] = useState('');
   const [phone,  setPhone] = useState('');
   const [address,  setAddress] = useState('');
-  const storeValues = useSelector(state => state);
-
+  const selectedRation = useSelector(state => state.selectedRation);
+  const selectedDaysActive = useSelector(state => state.selectedDaysActive);
+  const selectedCountDaysActive = useSelector(state => state.selectedCountDaysActive);
+  
   const fieldsArr = [
     {
       id: 'firstName',
@@ -53,9 +56,6 @@ export const Modal = ({ isActive, setIsActive }) => {
       lastName: '',
       patronymic: '',
       phone: '',
-      selectedRation: storeValues.selectedRation,
-      selectedDaysActive: storeValues.selectedDaysActive,
-      selectedCountDaysActive: storeValues.selectedCountDaysActive
     },
 
     validationSchema: Yup.object({
@@ -68,16 +68,26 @@ export const Modal = ({ isActive, setIsActive }) => {
     }),
 
     onSubmit: values => {
-      axios.post('http://localhost:8080/addUser/', JSON.stringify(values));
+      const newUser = {...values, 
+        selectedRation: selectedRation,
+        selectedDaysActive: selectedDaysActive,
+        selectedCountDaysActive: selectedCountDaysActive,
+      }
+      axios.post('http://localhost:8080/addUser/', JSON.stringify(newUser)).then(response => {
+        setStatus('sucsess')
+    }).catch(e => {
+        setStatus('error')
+    });;
     },
   });
 
   if (isActive)
   return (
-    <form onClick={setIsActive} className={styles.root} onSubmit={formik.handleSubmit}>
+    <form onClick={() => {setIsActive(); setStatus('panding')}} className={styles.root} onSubmit={formik.handleSubmit}>
       <div onClick={e => e.stopPropagation()} className={styles.modal}>
-      <div className={styles.close} onClick={setIsActive}>x</div>
+      <div className={styles.close} onClick={() => {setIsActive(); setStatus('panding')}}>x</div>
       <div className={styles.title}>Оформление заказа</div>
+      {status === 'panding' ?
       <div className={styles.inputsContainer}>
         {fieldsArr.map((item, idx) =>  
           <CustomInput 
@@ -89,9 +99,15 @@ export const Modal = ({ isActive, setIsActive }) => {
             key={idx}
           />
         )}
-      </div>
-
-        <button type='submit' className={styles.submitBtn}>Оформить заказ</button>
+      </div>: 
+      <>
+        {status === 'sucsess' ?
+          <div className={styles.sucsess}>Заказ успешно зарегестрирован</div>:
+          <div className={styles.error}>Упс.. что то пошло не так попробуйте позже</div>
+        }
+      </>
+        }
+        { status === 'panding' && <button type='submit' className={styles.submitBtn}>Оформить заказ</button>}
       </div>
     </form>
   )

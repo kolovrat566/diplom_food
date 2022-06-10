@@ -9,6 +9,9 @@ import { CallbackModal } from './componets/CallbackModal';
 import { TotalCost } from './componets/TotalCost';
 import { useSelector } from 'react-redux';
 import { FoodContainer } from './componets/FoodContainer';
+import { Header } from './componets/Header';
+import { CalorieCalculator } from './componets/CalorieCalculator';
+import{ ConnectionWithWe } from './componets/ConnectionWithWe';
 
 function App() {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -19,6 +22,9 @@ function App() {
 
   useEffect(() => {
     getFood();
+    setTimeout(() => {
+      setIsOpenCallbackModal(true)
+    }, 5000);
   }, []);
 
   const getFood = async () => {
@@ -28,24 +34,26 @@ function App() {
       console.log(e);
   });
   }
-  https://s2.best-wallpaper.net/wallpaper/1920x1200/1612/Japanese-cuisine-vegetables-seafood-meat-delicious-food_1920x1200.jpg
+
   return (
     <div className={styles.app}>
+      <Header/>
       <img className={styles.img}
       src='https://image.winudf.com/v2/image1/Y29tLndhbGxwYXBlcnMuaGQuYW5kLmJhY2tncm91bmRzLmZvb2Rfc2NyZWVuXzE2XzE1OTE1Njk4OTdfMDc2/screen-16.jpg?fakeurl=1&type=.webp'
       />
       <div className={cs(styles.titleText, styles.titleText_1)}>Готовим и доставляем еду на целый день</div>
+      <CalorieCalculator/>
       <Selecter elements={rationArr} text='Выбрать рацион' type='ration'/>
       <Selecter elements={daysActiveArr} text='Когда будешь есть' type='activeDays'/>
       <FoodContainer food={food} ration={ration}/>
       <Selecter elements={countDaysActiveArr} text='Выбери сколько дней' type='countDays'/>
       <TotalCost callback={setIsOpenModal} ration={ration} days={days}/>
+      <ConnectionWithWe/>
       <div className={cs(styles.titleText, styles.titleText_2)}>Быстро Вкусно Полезно</div>
       <img className={styles.img} src='http://storge.pic2.me/upload/978/5891e8e213950.jpg'/>
-      <button className={styles.btn} onClick={() => setIsOpenCallbackModal(true)}>Остались вопросы? мы на них отеветим</button>
+      <button className={styles.btn} onClick={() => setIsOpenCallbackModal(true)}>{'</>'}</button>
       <Modal isActive={isOpenModal} setIsActive={() => setIsOpenModal(!isOpenModal)}/>
       <CallbackModal isActive={isOpenCallbackModal} setIsActive={() => setIsOpenCallbackModal(!isOpenCallbackModal)}/>
-      
     </div>
   );
 }

@@ -32,21 +32,23 @@
 
    .titleText_2 {
     text-align: center;
-    top: 1980px;
+    top: 2400px;
     width: 773px;
     padding: 13px;
    }
 
   .btn {
-    width: 820px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 75px;
+    height: 75px;
     background-color: #fb5a16;
     color: #ffff;
-    min-height: 100px;
     font-size: 35px;
     text-align: center;
     border: none;
-    border-radius: 10px;
-    margin: 10px 0 50px;
+    border-radius: 50%;
   }
 }
 

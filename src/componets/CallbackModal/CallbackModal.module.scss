@@ -3,18 +3,23 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: gray;
-    opacity: 0.9;
+    bottom: 100px;
+    right: 100px;
+    width: 500px;
+    border-radius: 10px;
+    // width: 100vw;
+    // height: 100vh;
+    // background-color: gray;
+    // opacity: 0.94;
+    z-index: 2;
+    box-shadow: 10px 10px 10px rgba(135, 132, 132, 0.24);
+
   
     .modal {
       background-color: white;
       position: relative;
       height: 430px;
-      width: 35%;
+      // width: 35%;
       padding: 20px;
       opacity: 1;
       border-radius: 10px;

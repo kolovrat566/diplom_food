@@ -8,7 +8,8 @@
   width: 100vw;
   height: 100vh;
   background-color: gray;
-  opacity: 0.9;
+  // opacity: 0.94;
+  z-index: 2;
 
   .modal {
     background-color: white;
@@ -18,6 +19,22 @@
     padding: 20px;
     opacity: 1;
     border-radius: 10px;
+
+    .sucsess {
+      text-align: center;
+      font-size: 45px;
+      font-weight: 600;
+      margin: 100px 50px 30px;
+      color: rgb(56, 108, 56);
+    }
+
+    .error {
+      text-align: center;
+      font-size: 45px;
+      font-weight: 600;
+      margin: 100px 50px 30px;
+      color: lightcoral;
+    }
 
     .title {
       text-align: center;

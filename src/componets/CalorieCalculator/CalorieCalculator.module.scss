@@ -1,0 +1,27 @@
+.CalorieCalculator {
+  border-radius: 10px;
+  background-color: #ffff;
+  margin: 10px;
+  padding: 10px;
+  width: 800px;
+
+  .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 10px;
+    color: #6b6d71;
+  }
+
+  .inputsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b6d71;
+    font-size: 20px;
+  }
+}

@@ -42,7 +42,7 @@ export const CallbackModal = ({ isActive, setIsActive }) => {
     <form onClick={setIsActive} className={styles.root} onSubmit={formik.handleSubmit}>
     <div onClick={e => e.stopPropagation()} className={styles.modal}>
     <div className={styles.close} onClick={setIsActive}>x</div>
-    <div className={styles.title}>Оформление заказа</div>
+    <div className={styles.title}>Заказать звонок</div>
     <div>
       {status === 'panding' ?
       <>
@@ -76,11 +76,8 @@ export const CallbackModal = ({ isActive, setIsActive }) => {
         <div className={styles.error}>Упс.. что то пошло не так попробуйте позже</div>
       }
     </>
-
       }
     </div>
-   
-
       { status === 'panding' && <button type='submit' className={styles.submitBtn}>Оформить заказ</button>}
     </div>
   </form>

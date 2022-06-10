@@ -1,4 +1,4 @@
-import React, { useEffect, useSelector, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './TotalCost.module.scss';
 import { prices, countDaysActiveArr } from '../../helper';
 
