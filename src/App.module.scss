@@ -2,14 +2,47 @@
   display: flex;
   flex-direction: column;
   padding: 0 calc(50% - 400px);
-  background-color: #f8f8f8;
   min-height: 100vh;
+
+  .container {
+    background-color: #f8f8f8;
+    width: 840px;
+  }
+  .mapContainer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    width: 820px;
+
+    .text {
+      display: flex;
+      padding: 125px 30px;
+      margin: 0 10px;
+      font-size: 60px;
+      color: #6b6d71;
+      white-space: pre-wrap;
+      width: 350px;
+      font-weight: 600;
+      font-family: "Proxima Nova Bold";
+      text-align: center;
+      justify-content: center;
+    }
+  }
 
   .img {
     width: 820px;
     margin: 0 10px;
     font-weight: 600;
     border-radius: 10px;
+   }
+
+   .fon {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: -1;
    }
 
    .titleText {
@@ -27,12 +60,12 @@
    }
 
    .titleText_1 {
-    top: 100px;
+    top: 160px;
    }
 
    .titleText_2 {
     text-align: center;
-    top: 2400px;
+    top: 2750px;
     width: 773px;
     padding: 13px;
    }

@@ -38,7 +38,7 @@ export const CalorieCalculator = () => {
   const activesOptions = [
     {
       value: 0,
-      label: 'Ваша акивность'
+      label: 'Ваша активность'
     },
     {
       value: 1.2,

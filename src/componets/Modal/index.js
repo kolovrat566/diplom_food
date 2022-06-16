@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './Modal.module.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -13,6 +13,7 @@ export const Modal = ({ isActive, setIsActive }) => {
   const [patronymic,  setPatronymic] = useState('');
   const [phone,  setPhone] = useState('');
   const [address,  setAddress] = useState('');
+  const [contraindications,  setContraindications] = useState('');
   const selectedRation = useSelector(state => state.selectedRation);
   const selectedDaysActive = useSelector(state => state.selectedDaysActive);
   const selectedCountDaysActive = useSelector(state => state.selectedCountDaysActive);
@@ -48,6 +49,12 @@ export const Modal = ({ isActive, setIsActive }) => {
       value: address,
       setValue: setAddress,
     },
+    {
+      id: 'contraindications',
+      label: 'Противопоказания',
+      value: contraindications,
+      setValue: setContraindications,
+    },
   ];
 
   const formik = useFormik({
@@ -56,6 +63,7 @@ export const Modal = ({ isActive, setIsActive }) => {
       lastName: '',
       patronymic: '',
       phone: '',
+      contraindications: ''
     },
 
     validationSchema: Yup.object({
@@ -64,7 +72,6 @@ export const Modal = ({ isActive, setIsActive }) => {
       patronymic: Yup.string().required('Обязательное поле'),
       phone: Yup.string().required('Обязательное поле'),
       // .test('', 'Введите телефон полностью', value => value[value.length - 1] !== '_'),
-
     }),
 
     onSubmit: values => {
@@ -73,6 +80,7 @@ export const Modal = ({ isActive, setIsActive }) => {
         selectedDaysActive: selectedDaysActive,
         selectedCountDaysActive: selectedCountDaysActive,
       }
+      console.log(newUser);
       axios.post('http://localhost:8080/addUser/', JSON.stringify(newUser)).then(response => {
         setStatus('sucsess')
     }).catch(e => {
