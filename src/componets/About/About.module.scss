@@ -18,7 +18,8 @@
 
   .img {
     display: flex;
-    min-width: 800px;
+    min-width: 780px;
+    margin: 10px;
     animation: move 11s infinite linear;
   }
 }
@@ -26,31 +27,24 @@
 @keyframes move {
   15% {
     transform: translate(-0px);
-    background: green;
   }
   35% {
     transform: translate(-0px);
-    background: green;
   }
   40% {
     transform: translate(-800px);
-    background: red;
   }
   60% {
     transform: translate(-800px);
-    background: red;
   }
   65% {
     transform: translate(-1600px);
-    background: yellow;
   }
   85% {
     transform: translate(-1600px);
-    background: yellow;
   }
   90% {
     transform: translate(0);
-    background: green;
   }
 }
 

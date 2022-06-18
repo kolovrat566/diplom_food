@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 import styles from './CustomSelect.module.scss';
 
 export const CustomSelect = ({ options, onChange }) => {
-
   return (
     <div className={styles.selectContainer}>
       <select onChange={(e) => onChange(e)} className={styles.select}>

@@ -3,7 +3,6 @@ import './customInput.scss';
 import * as cs from 'classnames';
 import InputMask from 'react-input-mask';
 
-
 export const CustomInput = ({ id, formik, type, labelTExt, isObligatory, value, onChange }) => {
   const mask = id === 'birthday' ? '99-99-9999' : id === 'phone' ? '+7(999)-999-99-99' : '';
   const placeholder = id === 'birthday' ? '__-__-____' : id === 'phone' ? '+7(___)-___-__-__' : '';

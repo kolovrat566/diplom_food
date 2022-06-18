@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import styles from './Modal.module.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -7,7 +7,7 @@ import { CustomInput } from '../CustomInput';
 import { useSelector } from 'react-redux';
 
 export const Modal = ({ isActive, setIsActive }) => {
-  const [status, setStatus] = useState('panding')
+  const [status, setStatus] = useState('panding');
   const [firstName,  setFirsName] = useState('');
   const [lastName,  setLastName] = useState('');
   const [patronymic,  setPatronymic] = useState('');
@@ -70,8 +70,8 @@ export const Modal = ({ isActive, setIsActive }) => {
       firstName: Yup.string().required('Обязательное поле'),
       lastName: Yup.string().required('Обязательное поле'),
       patronymic: Yup.string().required('Обязательное поле'),
-      phone: Yup.string().required('Обязательное поле'),
-      // .test('', 'Введите телефон полностью', value => value[value.length - 1] !== '_'),
+      phone: Yup.string().required('Обязательное поле')
+      .test('', 'Введите телефон полностью', value => value[value.length - 1] !== '_'),
     }),
 
     onSubmit: values => {

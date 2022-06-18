@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import styles from './ChildSelectComponent.module.scss';
-import cs from 'classnames'
+import cs from 'classnames';
 
 export const ChildSelectComponent = ({item, callback, active, price}) => {
   return (

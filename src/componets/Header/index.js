@@ -1,15 +1,13 @@
-import React from 'react'
+import React from 'react';
 import styles from './Heder.module.scss';
-
-const arr = ['text0', 'text1', 'text2', 'text3', 'text4']
+import { headerArr } from '../../helper';
 
 export const Header = () => {
   return (
     <div className={styles.header}>
-      {arr.map((item, idx) => 
-        <div key={idx} className={styles.headerElement}>{item}</div>
+      {headerArr.map((item, idx) => 
+        <div key={idx} className={styles.headerElement} onClick={() => window.scroll(0, item.scrollY) }>{item.text}</div>
       )}
-      
     </div>
   )
 }

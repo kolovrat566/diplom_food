@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import styles from './FoodContainer.module.scss';
 
 export const FoodContainer = ({ food, ration }) => {
-  const [translate, setTranslate] = useState('translate(-0px)')
-  const [arr, setArr] = useState([])
+  const [translate, setTranslate] = useState('translate(-0px)');
+  const [arr, setArr] = useState([]);
 
   useEffect(() => {
     setTranslate('translate(-0px)')
@@ -17,16 +17,14 @@ export const FoodContainer = ({ food, ration }) => {
   }, [ration, food])
 
   const leftScrol = () => {
-    const scroll = +translate.split('-')[1].split('p')[0] - 265
-    console.log(scroll);
-    setTranslate(`translate(-${scroll}px)`)
-  }
+    const scroll = +translate.split('-')[1].split('p')[0] - 265;
+    setTranslate(`translate(-${scroll}px)`);
+  };
 
   const rightScrol = () => {
-    const scroll = +translate.split('-')[1].split('p')[0] + 265
-    console.log(scroll);
-    if (+scroll <= 795) setTranslate(`translate(-${scroll}px)`)
-  }
+    const scroll = +translate.split('-')[1].split('p')[0] + 265;
+    if (+scroll <= 795) setTranslate(`translate(-${scroll}px)`);
+  };
 
   return (
     <div className={styles.container}>
@@ -37,7 +35,6 @@ export const FoodContainer = ({ food, ration }) => {
           <button onClick={rightScrol} className={styles.rigthArrow}>{'>'}</button>
         </>
       }
-
       <div className={styles.body}>
         {arr.map((item, index) => {
           return (

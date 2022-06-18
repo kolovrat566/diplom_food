@@ -1,10 +1,13 @@
 import React from 'react';
-import { Modal } from './componets/Modal';
 import { useEffect, useState } from 'react';
 import styles from './App.module.scss';
 import axios from 'axios';
 import cs from 'classnames';
+import topImg from './img/jpg/382ad777ce322e9bd31e2c3a90841ed6.jpg';
+import bottomImg from './img/jpg/top-8-dostavok-gotovoj-edy-na-nedelyu-v-spb-rejting.jpg';
+import fon from './img/jpg/2.jpg';
 import { Selecter } from './componets/Selecter';
+import { Modal } from './componets/Modal';
 import { rationArr, daysActiveArr, countDaysActiveArr } from './helper';
 import { CallbackModal } from './componets/CallbackModal';
 import { TotalCost } from './componets/TotalCost';
@@ -13,9 +16,6 @@ import { FoodContainer } from './componets/FoodContainer';
 import { Header } from './componets/Header';
 import { CalorieCalculator } from './componets/CalorieCalculator';
 import{ ConnectionWithWe } from './componets/ConnectionWithWe';
-import topImg from './img/jpg/382ad777ce322e9bd31e2c3a90841ed6.jpg';
-import bottomImg from './img/jpg/top-8-dostavok-gotovoj-edy-na-nedelyu-v-spb-rejting.jpg';
-import fon from './img/jpg/2.jpg';
 import { CustomMap } from './componets/CustomMap';
 import { About } from './componets/About';
 
@@ -48,7 +48,6 @@ function App() {
         <Header/>
         <img className={styles.img}
         src={topImg}
-        // src='https://image.winudf.com/v2/image1/Y29tLndhbGxwYXBlcnMuaGQuYW5kLmJhY2tncm91bmRzLmZvb2Rfc2NyZWVuXzE2XzE1OTE1Njk4OTdfMDc2/screen-16.jpg?fakeurl=1&type=.webp'
         />
         <div className={cs(styles.titleText, styles.titleText_1)}>Готовим и доставляем еду на целый день</div>
         <CalorieCalculator/>
@@ -65,7 +64,6 @@ function App() {
         </div>
         <div className={cs(styles.titleText, styles.titleText_2)}>Быстро Вкусно Полезно</div>
         <img className={styles.img} src={bottomImg}
-        // src='http://storge.pic2.me/upload/978/5891e8e213950.jpg'
         />
         <button className={styles.btn} onClick={() => setIsOpenCallbackModal(true)}>{'</>'}</button>
         <div className={cs(styles.titleText, styles.titleText_2)}>Быстро Вкусно Полезно</div>

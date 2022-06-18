@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { CustomInput } from '../CustomInput';
 import { CustomSelect } from '../CustomSelect';
 import styles from './CalorieCalculator.module.scss';
+import { activesOptions, sexOptions } from '../../helper';
 
 export const CalorieCalculator = () => {
   const [age, setAge] = useState('');
@@ -16,51 +17,7 @@ export const CalorieCalculator = () => {
       if (sexValue === 'men') setResult( Math.round((10 * weight + 6.25 * height - 5 * age + 5) * actives) )
       else setResult( Math.round((10* weight + 6.25 * height - 5 * age - 161) * actives) )
     } else setResult('')
-      
-
-  }, [age, height, weight, sexValue, actives])
-  
-  const sexOptions = [
-    {
-      value: 'sex',
-      label: 'Ваш пол'
-    },
-    {
-      value: 'men',
-      label: 'мужской'
-    },
-    {
-      value: 'women',
-      label: 'женский'
-    },
-  ]
-
-  const activesOptions = [
-    {
-      value: 0,
-      label: 'Ваша активность'
-    },
-    {
-      value: 1.2,
-      label: 'минимальная'
-    },
-    {
-      value: 1.375,
-      label: 'слабая'
-    },
-    {
-      value: 1.55,
-      label: 'умеренная'
-    },
-    {
-      value: 1.7,
-      label: 'тяжёлая'
-    },
-    {
-      value: 1.9,
-      label: 'экстримальная'
-    },
-  ]
+  }, [age, height, weight, sexValue, actives]);
 
   return (
     <div className={styles.CalorieCalculator}>

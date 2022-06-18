@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ChildSelectComponent } from '../childSelectComponent';
 import { chooseRation, chooseDaysActive, chooseCountDaysActive } from '../../store';
 import styles from './Selecter.module.scss';
-import { prices } from '../../helper'
+import { prices } from '../../helper';
 
 export const Selecter = ({elements, text, type}) => {
   const [ daysPrice, setDaysPrice] = useState([]);
-  const ration = useSelector(state => state.selectedRation)
+  const ration = useSelector(state => state.selectedRation);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,15 +30,15 @@ export const Selecter = ({elements, text, type}) => {
   }, [ ration ])
 
   const selectedElement = useSelector((state) => 
-    type==='ration' ? state.selectedRation :
-    type==='activeDays' ? state.selectedDaysActive :
+    type === 'ration' ? state.selectedRation :
+    type === 'activeDays' ? state.selectedDaysActive :
     state.selectedCountDaysActive
   );
 
   const handleChoose = (title) => {
-    if (type === 'ration') dispatch(chooseRation(title))
-    if (type === 'activeDays') dispatch(chooseDaysActive(title))
-    if (type === 'countDays') dispatch(chooseCountDaysActive(title))
+    if (type === 'ration') dispatch(chooseRation(title));
+    if (type === 'activeDays') dispatch(chooseDaysActive(title));
+    if (type === 'countDays') dispatch(chooseCountDaysActive(title));
   };
 
   return (

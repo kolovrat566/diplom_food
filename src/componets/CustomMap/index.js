@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, Polygon } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -21,8 +21,8 @@ export const CustomMap = () => {
     { lat:   47.406826780891606, lng: 40.123425347029794 },
   ]);
 
-  const [zoom, setZoom] = useState(0)
-  const [map, setMap] = useState(null)
+  const [zoom, setZoom] = useState(0);
+  const [map, setMap] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,17 +34,17 @@ export const CustomMap = () => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyAN3Ct7JfifuIzsXSbuli2QWWXuVchWUdo"
-  })
+  });
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
     setMap(map)
-  }, [])
+  }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
-  }, [])
+  }, []);
 
   return isLoaded ? (
       <GoogleMap

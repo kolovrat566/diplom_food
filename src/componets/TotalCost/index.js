@@ -9,7 +9,7 @@ export const TotalCost = ({ callback, ration, days }) => {
     for (let i = 0; i < arr.length; i++) {
       if (+arr[i].title === +value) return i
     }
-  }
+  };
 
   useEffect(() => {
     switch (ration) {

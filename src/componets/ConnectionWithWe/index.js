@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styles from './ConnectionWithWe.module.scss';
 import InstLogo from '../../img/svg/inst.svg';
 import VkLogo from '../../img/svg/vk.svg';
