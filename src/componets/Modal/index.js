@@ -24,36 +24,44 @@ export const Modal = ({ isActive, setIsActive }) => {
       label: 'Имя',
       value: firstName,
       setValue: setFirsName,
+      isObligatory: true,
     },
     {
       id: 'lastName',
       label: 'Фамилия',
       value: lastName,
       setValue: setLastName,
+      isObligatory: true,
     },
     {
       id: 'patronymic',
       label: 'Отчество',
       value: patronymic,
       setValue: setPatronymic,
+      isObligatory: false,
     },
     {
       id: 'phone',
       label: 'Номер телефона',
       value: phone,
       setValue: setPhone,
+      isObligatory: true,
+
     },
     {
       id: 'address',
       label: 'Адрес',
       value: address,
       setValue: setAddress,
+      isObligatory: false,
+
     },
     {
       id: 'contraindications',
       label: 'Противопоказания',
       value: contraindications,
       setValue: setContraindications,
+      isObligatory: false,
     },
   ];
 
@@ -69,9 +77,7 @@ export const Modal = ({ isActive, setIsActive }) => {
     validationSchema: Yup.object({
       firstName: Yup.string().required('Обязательное поле'),
       lastName: Yup.string().required('Обязательное поле'),
-      patronymic: Yup.string().required('Обязательное поле'),
-      phone: Yup.string().required('Обязательное поле')
-      .test('', 'Введите телефон полностью', value => value[value.length - 1] !== '_'),
+      phone: Yup.string().required('Обязательное поле'),
     }),
 
     onSubmit: values => {
@@ -103,7 +109,7 @@ export const Modal = ({ isActive, setIsActive }) => {
             labelTExt={item.label}
             formik={formik}
             type={item.type}
-            isObligatory
+            isObligatory={item.isObligatory}
             key={idx}
           />
         )}
